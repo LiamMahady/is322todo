@@ -1,0 +1,112 @@
+﻿<!DOCTYPE html>
+<html data-framework="backbonejs" lang="en">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <title>Backbone.js • TodoMVC</title>
+    <link rel="stylesheet" href="bower_components/todomvc-common/base.css">
+  </head>
+  <body class="learn-bar">
+    <aside class="learn">
+      <header>
+        <h3>Backbone.js</h3>
+        <span class="source-links">
+          <h5>Architecture Example</h5>
+          <a href="https://github.com/tastejs/todomvc/tree/gh-pages/architecture-examples/backbone">Source</a>
+          <h5>Dependency Example</h5>
+          <a class="demo-link" href="http://todomvc.com/dependency-examples/backbone_require">Demo</a>,
+          <a href="https://github.com/tastejs/todomvc/tree/gh-pages/dependency-examples/backbone_require">Source</a>
+          <h5>Enyo &amp; Backbone.js</h5>
+          <a class="demo-link" href="http://todomvc.com/labs/dependency-examples/enyo_backbone">Demo</a>,
+          <a href="https://github.com/tastejs/todomvc/tree/gh-pages/labs/dependency-examples/enyo_backbone">Source</a>
+          <h5>TypeScript &amp; Backbone.js</h5>
+          <a class="demo-link" href="http://todomvc.com/labs/architecture-examples/typescript-backbone">Demo</a>,
+          <a href="https://github.com/tastejs/todomvc/tree/gh-pages/labs/architecture-examples/typescript-backbone">Source</a>
+        </span>
+      </header>
+      <hr>
+      <blockquote class="quote speech-bubble">
+        <p>Backbone.js gives structure to web applications by providing models with key-value binding and custom events, collections with a rich API of enumerable functions, views with declarative event handling, and connects it all to your existing API over a RESTful JSON interface.</p>
+        <footer>
+          <a href="http://backbonejs.org/">Backbone.js</a>
+        </footer>
+      </blockquote>
+      <hr>
+      <h4>Official Resources</h4>
+      <ul>
+        <li> <a href="http://backbonejs.org/docs/backbone.html">Annotated source code</a> </li>
+        <li> <a href="http://backbonejs.org/#examples">Applications built with Backbone.js</a> </li>
+        <li> <a href="http://backbonejs.org/#faq">FAQ</a> </li>
+      </ul>
+      <h4>Articles and Guides</h4>
+      <ul>
+        <li> <a href="http://addyosmani.github.io/backbone-fundamentals">Developing Backbone.js Applications</a> </li>
+            <li> <a href="https://github.com/documentcloud/backbone/wiki/Tutorials%2C-blog-posts-and-example-sites">Collection of tutorials, blog posts, and example sites</a> </li>
+      </ul>
+      <h4>Community</h4>
+      <ul>
+        <li> <a href="http://stackoverflow.com/questions/tagged/backbone.js">Backbone.js on StackOverflow</a> </li>
+        <li> <a href="https://groups.google.com/forum/#%21forum/backbonejs">Google Groups mailing list</a> </li>
+        <li> <a href="http://twitter.com/documentcloud">Backbone.js on Twitter</a> </li>
+      </ul>
+      <footer>
+        <hr>
+        <em>If you have other helpful links to share, or find any of the links above no longer work, please <a href="https://github.com/tastejs/todomvc/issues">let us know</a>.</em> 
+      </footer>
+    </aside>
+    <section id="todoapp">
+      <header id="header">
+        <h1>todos</h1>
+        <input id="new-todo" placeholder="What needs to be done?" autofocus="">
+      </header>
+      <section style="display: none;" id="main">
+        <input checked="checked" id="toggle-all" type="checkbox">
+          <label for="toggle-all">Mark all as complete</label>
+          <ul id="todo-list"></ul>
+      </section>
+      <footer style="display: none;" id="footer"></footer>
+    </section>
+    <footer id="info">
+      <p>Double-click to edit a todo</p>
+      <p>Written by <a href="https://github.com/addyosmani">Addy Osmani</a></p>
+      <p>Part of <a href="http://todomvc.com/">TodoMVC</a></p>
+    </footer>
+    <script src="Backbone.js%20%E2%80%A2%20TodoMVC_files/ga.js"></script>
+    <script type="text/template" id="item-template">
+      <div class="view">
+        <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
+        <label><%- title %></label>
+        <button class="destroy"></button>
+      </div>
+      <input class="edit" value="<%- title %>">
+    </script>
+    <script type="text/template" id="stats-template">
+      <span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>
+      <ul id="filters">
+        <li>
+          <a class="selected" href="#/">All</a>
+        </li>
+        <li>
+          <a href="#/active">Active</a>
+        </li>
+        <li>
+          <a href="#/completed">Completed</a>
+        </li>
+      </ul>
+      <% if (completed) { %>
+        <button id="clear-completed">Clear completed (<%= completed %>)</button>
+      <% } %>
+    </script>
+    <script src="bower_components/todomvc-common/base.js"></script>
+    <script src="bower_components/jquery/jquery.js"></script>
+    <script src="bower_components/underscore/underscore.js"></script>
+    <script src="bower_components/backbone/backbone_002.js"></script>
+    <script src="bower_components/backbone.localStorage/backbone.js"></script>
+    <script src="js/models/todo.js"></script>
+    <script src="js/collections/todos.js"></script>
+    <script src="js/views/todo-view.js"></script>
+    <script src="js/views/app-view.js"></script>
+    <script src="js/routers/router.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>
