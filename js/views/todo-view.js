@@ -18,7 +18,8 @@ var app = app || {};
 		// The DOM events specific to an item.
 		events: {
 			'click .toggle': 'toggleCompleted',
-			'dblclick label': 'edit',
+			'dblclick .title': 'edit',
+			'dblclick .date': 'editDate',
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
@@ -75,13 +76,24 @@ var app = app || {};
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function () {
 			this.$el.addClass('editing');
-			this.$input.focus();
+			this.$(".titleEdit").show();
+			this.$(".titleEdit").focus();
+			this.$(".dateEdit").hide();
 		},
+		//just a copy of edit
+		editDate: function()
+		  {this.$el.addClass('editing');
+		  this.$(".dateEdit").show();
+		  this.$(".dateEdit").focus();
+		  this.$(".titleEdit").hide();
+		  },
 
 		// Close the `"editing"` mode, saving changes to the todo.
 		close: function () {
-			var value = this.$input.val();
+			var value = this.$(".titleEdit").val();
 			var trimmedValue = value.trim();
+			var dateVal=this.$(".dateEdit").val();
+			var trimmedDateVal=dateVal.trim();
 
 			// We don't want to handle blur events from an item that is no
 			// longer being edited. Relying on the CSS class here has the
@@ -92,7 +104,7 @@ var app = app || {};
 			}
 
 			if (trimmedValue) {
-				this.model.save({ title: trimmedValue });
+				this.model.save({ title: trimmedValue});
 
 				if (value !== trimmedValue) {
 					// Model values changes consisting of whitespaces only are
@@ -105,8 +117,17 @@ var app = app || {};
 			} else {
 				this.clear();
 			}
+			if (trimmedDateVal)
+			  {this.model.save({date:trimmedDateVal});
+			  if (dateVal!==trimmedDateVal)
+			    {this.model.trigger('change');
+			    }
+			  }
 
 			this.$el.removeClass('editing');
+			this.$(".titleEdit").hide();
+			this.$(".dateEdit").hide();
+			
 		},
 
 		// If you hit `enter`, we're through editing the item.
