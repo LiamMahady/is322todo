@@ -23,7 +23,8 @@ var app = app || {};
 			'click .destroy': 'clear',
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
-			'blur .edit': 'close'
+			'blur .edit': 'close',
+			'swipe label': 'toggleCompleted'
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since
@@ -34,6 +35,8 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
 			this.listenTo(this.model, 'visible', this.toggleVisible);
+			this.$el.hammer({swipe_velocity: 0.3});
+			this.delegateEvents();//we seem to need to redelegate after enabling hammer
 		},
 
 		// Re-render the titles of the todo item.
