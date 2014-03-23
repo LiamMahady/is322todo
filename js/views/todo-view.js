@@ -35,7 +35,7 @@ var app = app || {};
 			this.listenTo(this.model, 'change', this.render);
 			this.listenTo(this.model, 'destroy', this.remove);
 			this.listenTo(this.model, 'visible', this.toggleVisible);
-			this.$el.hammer({swipe_velocity: 0.3});
+			this.$el.hammer({drag_block_horizontal: true});
 			this.delegateEvents();//we seem to need to redelegate after enabling hammer
 		},
 
