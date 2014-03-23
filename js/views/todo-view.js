@@ -24,7 +24,7 @@ var app = app || {};
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close',
-			'dragend label': 'toggleCompleted'//for some reason this works much more reliably than swipe
+			'dragend label': 'toggleCompletedSwipe'//for some reason this works much more reliably than swipe
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since
@@ -75,6 +75,13 @@ var app = app || {};
 		toggleCompleted: function () {
 			this.model.toggle();
 		},
+		
+		//Toggle completed with some additional touch functionality
+		toggleCompletedSwipe: function(event)
+		  {if (Math.abs(event.gesture.deltaX/event.gesture.deltaTime) > 0.3)//hammer seems inconsitent in reporting the velocity so we have to calculate it here
+		    {this.model.toggle();
+		    }
+		  },
 
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function () {
