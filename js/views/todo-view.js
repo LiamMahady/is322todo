@@ -24,7 +24,7 @@ var app = app || {};
 			'keypress .edit': 'updateOnEnter',
 			'keydown .edit': 'revertOnEscape',
 			'blur .edit': 'close',
-			'swipe label': 'toggleCompleted'
+			'dragend label': 'toggleCompleted'//for some reason this works much more reliably than swipe
 		},
 
 		// The TodoView listens for changes to its model, re-rendering. Since
