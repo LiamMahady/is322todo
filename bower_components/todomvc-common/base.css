@@ -24,7 +24,7 @@ body {
 	line-height: 1.4em;
 	background: #eaeaea url('bg.png');
 	color: #4d4d4d;
-	width: 550px;
+	width: 100%;
 	margin: 0 auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-font-smoothing: antialiased;
@@ -57,7 +57,7 @@ input[type="checkbox"] {
 	width: 2px;
 	position: absolute;
 	top: 0;
-	left: 40px;
+	left: 7.2%;
 	height: 100%;
 }
 
@@ -136,7 +136,8 @@ input[type="checkbox"] {
 }
 
 .new-todo {
-	padding: 16px 16px 16px 60px;
+  padding: 16px 3% 16px 10.9%;
+	/*padding: 16px 16px 16px 60px;*/
 	border: none;
 	background: rgba(0, 0, 0, 0.02);
 	z-index: 2;
@@ -197,9 +198,11 @@ label[for='toggle-all'] {
 
 #todo-list li.editing .edit {
 	display: block;
-	width: 506px;
+	width: 92%;
+	/*width: 506px;*/
 	padding: 13px 17px 12px 17px;
-	margin: 0 0 0 43px;
+	margin: 0 0 0 7.8%;
+	/*margin: 0 0 0 43px;*/
 }
 
 #todo-list li.editing .view {
@@ -243,7 +246,7 @@ label[for='toggle-all'] {
 	white-space: pre;
 	word-break: break-word;
 	padding: 15px 60px 15px 15px;
-	margin-left: 45px;
+	margin-left: 8.2%;
 	display: block;
 	line-height: 1.2;
 	-webkit-transition: color 0.4s;
@@ -538,6 +541,12 @@ hr {
 	-webkit-transition-duration: 500ms;
 	transition-duration: 500ms;
 }
+
+@media (min-width: 550px)
+  {body
+    {width:550px;
+    }
+  }
 
 @media (min-width: 899px) {
 	.learn-bar {
