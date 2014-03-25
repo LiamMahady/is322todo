@@ -115,7 +115,7 @@ input[type="checkbox"] {
 	position: relative;
 	margin: 0;
 	width: 100%;
-	font-size: 24px;
+	font-size: 20px;
 	font-family: inherit;
 	line-height: 1.4em;
 	border: 0;
@@ -191,7 +191,7 @@ label[for='toggle-all'] {
 
 #todo-list li {
 	position: relative;
-	font-size: 24px;
+	font-size: 20px;
 	border-bottom: 1px dotted #ccc;
 }
 
@@ -580,6 +580,9 @@ hr {
 @media (min-width: 550px)
   {body
     {width:550px;
+    }
+  .new-todo, .edit, #todo-list li
+    {font-size: 24px;
     }
   }
 
