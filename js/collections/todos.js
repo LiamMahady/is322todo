@@ -37,9 +37,10 @@ var app = app || {};
 			return this.last().get('order') + 1;
 		},
 
-		// Todos are sorted by their original insertion order.
+		// Todos are sorted by their date attribute.
+		// Admittedly this assumes that dates are given in yyyy/mm/dd order
 		comparator: function (todo) {
-			return todo.get('order');
+			return todo.get('date');
 		}
 	});
 

@@ -129,6 +129,8 @@ var app = app || {};
 			}
 			if (trimmedDateVal)
 			  {this.model.save({date:trimmedDateVal});
+			  //trigger a resort whenever the date is changed
+			  app.todos.sort();
 			  if (dateVal!==trimmedDateVal)
 			    {this.model.trigger('change');
 			    }
