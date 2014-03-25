@@ -144,6 +144,14 @@ input[type="checkbox"] {
 	box-shadow: none;
 }
 
+#new-todo
+  {padding-bottom: 8px;
+  }
+ 
+#new-todo-date
+  {padding-top: 8px;
+  }
+
 #main {
 	position: relative;
 	z-index: 2;
@@ -252,6 +260,15 @@ label[for='toggle-all'] {
 	-webkit-transition: color 0.4s;
 	transition: color 0.4s;
 }
+
+#todo-list li .title
+  {padding-bottom: 7.5px;
+  border-bottom: 1px dotted #bbf;
+  }
+  
+#todo-list li .date
+  {padding-top: 7.5px;
+  }
 
 #todo-list li.completed label {
 	color: #a9a9a9;
