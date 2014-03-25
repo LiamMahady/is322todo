@@ -177,6 +177,8 @@ label[for='toggle-all'] {
 	font-size: 28px;
 	color: #d9d9d9;
 	padding: 0 25px 7px;
+	position: relative;
+	bottom: -13px;
 }
 
 #toggle-all:checked:before {
@@ -368,6 +370,9 @@ label[for='toggle-all'] {
   #footer
     {height: 30px;
     bottom: -30px;
+    }
+  #toggle-all:before
+    {position:static;
     }
   }
 
