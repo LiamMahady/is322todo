@@ -1,6 +1,16 @@
 /*global Backbone */
 var app = app || {};
 
+Backbone.Model.prototype.toJSON=function()
+  {return this._parseDates(this.attributes);
+  };
+Backbone.Model.prototype._parseDates=function(attrs)
+  {attrs=_.clone(attrs);
+  var newDate=attrs.date.split("/").reverse().join("/");
+  attrs.date=new Date(newDate).toISOString();
+  return attrs;
+  };
+
 (function () {
 	'use strict';
 

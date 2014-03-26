@@ -38,7 +38,12 @@ var app = app || {};
 			this.$el.hammer({drag_block_horizontal: true});
 			this.delegateEvents();//we seem to need to redelegate after enabling hammer
 		},
-
+		
+		formatDates: function(attr)
+		  {attr.date=attr.date.substr(0,10);
+		  return attr;
+		  },
+		
 		// Re-render the titles of the todo item.
 		render: function () {
 			// Backbone LocalStorage is adding `id` attribute instantly after
@@ -52,7 +57,7 @@ var app = app || {};
 				return;
 			}
 
-			this.$el.html(this.template(this.model.toJSON()));
+			this.$el.html(this.template(this.formatDates(this.model.toJSON())));
 			this.$el.toggleClass('completed', this.model.get('completed'));
 			this.toggleVisible();
 			this.$input = this.$('.edit');
