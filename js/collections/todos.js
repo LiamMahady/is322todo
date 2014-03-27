@@ -38,9 +38,9 @@ var app = app || {};
 		},
 
 		// Todos are sorted by their date attribute.
-		// Admittedly this assumes that dates are given in yyyy/mm/dd order
 		comparator: function (todo) {
-			return todo.get('date');
+		  var date=new Date(todo.get('date'));
+			return date.getTime();
 		}
 	});
 
