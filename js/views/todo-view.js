@@ -91,6 +91,7 @@ var app = app || {};
 		// Switch this view into `"editing"` mode, displaying the input field.
 		edit: function () {
 			this.$el.addClass('editing');
+			this.$el.addClass('editingTitle');
 			this.$(".titleEdit").show();
 			this.$(".titleEdit").focus();
 			this.$(".dateEdit").hide();
@@ -98,6 +99,7 @@ var app = app || {};
 		//just a copy of edit
 		editDate: function()
 		  {this.$el.addClass('editing');
+		  this.$el.addClass('editingDate');
 		  this.$(".dateEdit").show();
 		  this.$(".dateEdit").focus();
 		  this.$(".titleEdit").hide();
@@ -140,6 +142,8 @@ var app = app || {};
 			  }
 
 			this.$el.removeClass('editing');
+			this.$el.removeClass('editingTitle');
+			this.$el.removeClass('editingDate');
 			this.$(".titleEdit").hide();
 			this.$(".dateEdit").hide();
 			

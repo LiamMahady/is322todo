@@ -32,11 +32,11 @@
       <div class="view">
         <input class="toggle" type="checkbox" <%= completed ? 'checked' : '' %>>
         <label class="title"><%- title %></label>
+	<input class="edit titleEdit" value="<%- title %>">
         <label class="date"><%- date %></label>
+	<input class="edit dateEdit" type="date" value="<%- date %>">
         <button class="destroy"></button>
       </div>
-      <input class="edit titleEdit" value="<%- title %>">
-      <input class="edit dateEdit" type="date" value="<%- date %>">
     </script>
     <script type="text/template" id="stats-template">
       <span id="todo-count"><strong><%= remaining %></strong> <%= remaining === 1 ? 'item' : 'items' %> left</span>

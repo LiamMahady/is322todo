@@ -202,7 +202,6 @@ label[for='toggle-all'] {
 }
 
 #todo-list li.editing {
-	border-bottom: none;
 	padding: 0;
 }
 
@@ -213,10 +212,6 @@ label[for='toggle-all'] {
 	padding: 13px 17px 12px 17px;
 	margin: 0 0 0 7.8%;
 	/*margin: 0 0 0 43px;*/
-}
-
-#todo-list li.editing .view {
-	display: none;
 }
 
 #todo-list li .toggle {
@@ -315,6 +310,11 @@ label[for='toggle-all'] {
 #todo-list li.editing:last-child {
 	margin-bottom: -1px;
 }
+
+#todo-list li.editing .toggle, #todo-list li.editing .destroy, #todo-list li.editingTitle .title, #todo-list li.editingDate .date
+  { display: none;
+  }
+
 
 #footer {
 	color: #777;
