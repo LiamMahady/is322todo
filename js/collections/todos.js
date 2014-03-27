@@ -16,6 +16,15 @@ var app = app || {};
 		// Save all of the todo items under the `"todos"` namespace.
 		localStorage: new Backbone.LocalStorage('todos-backbone'),
 
+		//listen for any changes in date that will require a resort
+		initialize: function()
+		  {this.on
+		  ("change:date", function()
+		    {this.sort();
+		    }
+		  );
+		  },
+		
 		// Filter down the list of all todo items that are finished.
 		completed: function () {
 			return this.filter(function (todo) {
