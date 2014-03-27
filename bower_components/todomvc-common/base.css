@@ -324,27 +324,24 @@ label[for='toggle-all'] {
 	bottom: -46px;
 	left: 0;
 	height: 45px;
+	z-index:1;
 	text-align: center;
-	margin-left: 6px;
-	margin-right: 6px;
-	background-color: rgba(255, 255, 255, 0.8);
-	box-shadow: 0px 1px 2px -0 rgba(0, 0, 0, 0.2);
 }
 
-/*#footer:before {
+#footer:before {
 	content: '';
 	position: absolute;
 	right: 0;
-	bottom: 15px;
+	bottom: 46px;
 	left: 0;
-	height: 50px;
+	height: 65px;
 	z-index: -1;
 	box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
 				0 6px 0 -3px rgba(255, 255, 255, 0.8),
 				0 7px 1px -3px rgba(0, 0, 0, 0.3),
-				0 43px 0 -6px rgba(255, 255, 255, 0.8),
-				0 44px 2px -6px rgba(0, 0, 0, 0.2);
-}*/
+				0 58px 0 -6px rgba(255, 255, 255, 0.8),
+				0 59px 2px -6px rgba(0, 0, 0, 0.2);
+}
 
 #todo-count
   {text-align:left;
@@ -368,8 +365,16 @@ label[for='toggle-all'] {
     {margin-top: 5px;
     }
   #footer
-    {height: 30px;
+    {height: 25px;
     bottom: -30px;
+    }
+  #footer:before
+    {bottom:31px;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.3),
+        0 6px 0 -3px rgba(255, 255, 255, 0.8),
+	0 7px 1px -3px rgba(0, 0, 0, 0.3),
+	0 43px 0 -6px rgba(255, 255, 255, 0.8),
+	0 44px 2px -6px rgba(0, 0, 0, 0.2);
     }
   #toggle-all:before
     {position:static;
