@@ -1,6 +1,15 @@
 /*global Backbone, jQuery, _, ENTER_KEY, ESC_KEY */
 var app = app || {};
 
+Backbone.View.prototype.isValidDateString=function(str)//for some reason Date has no method for this and we need SOME way to verify that we're getting input that won't cause errors
+  {if (isNaN(Date.parse(str)))
+    {return false;
+    }
+  else
+    {return true;
+    }
+  };
+
 (function ($) {
 	'use strict';
 
@@ -134,7 +143,7 @@ var app = app || {};
 			} else {
 				this.clear();
 			}
-			if (trimmedDateVal)
+			if (trimmedDateVal && this.isValidDateString(trimmedDateVal))
 			  {this.model.save({date:trimmedDateVal});
 			  if (dateVal!==trimmedDateVal)
 			    {this.model.trigger('change');
