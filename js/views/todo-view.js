@@ -49,7 +49,20 @@ Backbone.View.prototype.isValidDateString=function(str)//for some reason Date ha
 		},
 		
 		formatDates: function(attr)
-		  {attr.date=attr.date.substr(0,10);
+		  {if (Modernizr.inputtypes.date)
+		    {var dateDisp=new Date(attr.date);
+		    //data is stored in GMT while the string outputs it in local time
+		    //so we need to correct for that
+		    dateDisp.setMinutes(dateDisp.getMinutes()+dateDisp.getTimezoneOffset());
+		    attr.dateDisp=dateDisp.toLocaleDateString();
+		    attr.date=attr.date.substr(0,10);
+		    }
+		  else
+		    {var date=new Date(attr.date);
+		    var dateStr=date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear();
+		    attr.date=dateStr;
+		    attr.dateDisp=dateStr;
+		    }
 		  return attr;
 		  },
 		
