@@ -101,7 +101,6 @@ var app = app || {};
 			return {
 				title: this.$input.val().trim(),
 				date: this.$inputDate.val().trim(),
-				order: app.todos.nextOrder(),
 				completed: false
 			};
 		},
