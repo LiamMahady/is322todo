@@ -122,11 +122,21 @@ Backbone.View.prototype.isValidDateString=function(str)//for some reason Date ha
 		editDate: function()
 		  {this.$el.addClass('editing');
 		  this.$el.addClass('editingDate');
+		  //for whatever reason focusing on one input causes them both to appear, so we need to control their visibility here
 		  this.$(".dateEdit").show();
 		  this.$(".dateEdit").focus();
 		  this.$(".titleEdit").hide();
 		  },
 
+		//gets the view back into it's normal display mode
+		endEditingDisplay: function()
+		  {this.$el.removeClass('editing');
+			this.$el.removeClass('editingTitle');
+			this.$el.removeClass('editingDate');
+			this.$(".titleEdit").hide();
+			this.$(".dateEdit").hide();
+			},
+		
 		// Close the `"editing"` mode, saving changes to the todo.
 		close: function () {
 			var value = this.$(".titleEdit").val();
@@ -163,11 +173,7 @@ Backbone.View.prototype.isValidDateString=function(str)//for some reason Date ha
 			    }
 			  }
 
-			this.$el.removeClass('editing');
-			this.$el.removeClass('editingTitle');
-			this.$el.removeClass('editingDate');
-			this.$(".titleEdit").hide();
-			this.$(".dateEdit").hide();
+			this.endEditingDisplay();
 			
 		},
 
@@ -182,7 +188,7 @@ Backbone.View.prototype.isValidDateString=function(str)//for some reason Date ha
 		// the `editing` state.
 		revertOnEscape: function (e) {
 			if (e.which === ESC_KEY) {
-				this.$el.removeClass('editing');
+				this.endEditingDisplay();
 			}
 		},
 
